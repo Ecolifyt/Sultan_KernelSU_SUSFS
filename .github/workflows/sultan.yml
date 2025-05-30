@@ -26,7 +26,7 @@ jobs:
       - name: Installing dependencies
         run: |
           sudo apt update
-          sudo apt install -y gcc-aarch64-linux-gnu flex bc bison lib32ncurses5-dev libncurses5 libncurses5-dev build-essential \
+          sudo apt install -y flex bc bison lib32ncurses5-dev libncurses5 libncurses5-dev build-essential \
             curl flex g++-multilib gcc-multilib git git-lfs gnupg gperf \
             imagemagick protobuf-compiler python3-protobuf lib32readline-dev lib32z1-dev libdw-dev libelf-dev lz4 \
             libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc \
