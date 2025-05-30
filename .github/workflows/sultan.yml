@@ -71,7 +71,7 @@ jobs:
           export ARCH=arm64
           export CROSS_COMPILE=aarch64-linux-gnu-
           make gs201_defconfig
-          make
+          make -j$(nproc --all)
 
       - name: Copy Images
         run: |
