@@ -28,7 +28,7 @@ jobs:
     secrets: inherit
     with:
       codename: "gs201"
-      repo: "gs_pantah"
+      repo: "gs-pantah"
       android_version: "android14"
       kernel_version: "6.1"
   
