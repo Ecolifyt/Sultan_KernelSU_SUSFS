@@ -9,19 +9,15 @@ on:
       codename:
         required: true
         type: string
-        default: "gs201"
       repo:
         required: true
         type: string
-        default: "gs-pantah"
       android_version:
         required: true
         type: string
-        default: "android14"
       kernel_version:
         required: true
         type: string
-        default: "6.1"
   
 jobs:
   build-kernel-sultan-kernelsu-susfs:
