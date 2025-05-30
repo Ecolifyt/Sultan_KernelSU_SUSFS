@@ -9,33 +9,24 @@ on:
       codename:
         required: true
         type: string
+        default: "gs201"
       repo:
         required: true
         type: string
+        default: "gs-pantah"
       android_version:
         required: true
         type: string
+        default: "android14"
       kernel_version:
         required: true
         type: string
+        default: "6.1"
   
 jobs:
   build-kernel-sultan-kernelsu-susfs:
-    runs-on: ubuntu-latest
+    runs-on: builde
     steps:
-      - name: Maximize Build Space
-        uses: AdityaGarg8/remove-unwanted-software@v5
-        with:
-          remove-dotnet: 'true'          # Frees ~2 GB
-          remove-android: 'true'         # Frees ~9 GB
-          remove-haskell: 'true'         # Frees ~5.2 GB
-          remove-codeql: 'true'          # Frees ~5.4 GB
-          remove-docker-images: 'true'   # Frees ~3.2 GB
-          remove-large-packages: 'true'  # Frees ~3.1 GB
-          remove-swapfile: 'true'        # Frees ~4 GB
-          remove-cached-tools: 'false'   # Avoid unless confirmed safe
-          verbose: 'true'                # Enable detailed logging
-          
       - name: Installing dependencies
         run: |
           sudo apt update
@@ -68,7 +59,7 @@ jobs:
           git checkout b5c3ada461a61c6ad033693b7a00494ead3a28fd
           cd ..
           git clone https://github.com/TheWildJames/kernel_patches.git
-          git clone https://github.com/kerneltoast/${{ inputs.repo }}
+          git clone https://github.com/Ecolifyt/gs-pantah.git
       
       - name: Add KernelSU
         run: |
@@ -182,7 +173,7 @@ jobs:
           cd "$CONFIG"
           
           echo "Running sed commands..."
-          sed -i 's/CONFIG_LOCALVERSION="-Sultan"/CONFIG_LOCALVERSION="-Sultan-Wild"/' ./arch/arm64/configs/${{ inputs.codename }}_defconfig
+       #   sed -i 's/CONFIG_LOCALVERSION="-Sultan"/CONFIG_LOCALVERSION="-Sultan-Wild"/' ./arch/arm64/configs/${{ inputs.codename }}_defconfig
 
       - name: Build the Kernel
         run: |
